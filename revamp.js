@@ -9,31 +9,18 @@ if (screenMainMenu) {
   dec3ptionsBtn.classList.add('button');
   dec3ptionsBtn.textContent = 'Dec3ptions';
   mainMenuRow2.appendChild(dec3ptionsBtn);
-
-  console.log('The element with ID "screen_main_menu" was found and a new element with class "main_menu_row2" was created, and a new element with class "button main_menu_btn" was created and added to "main_menu_row2".');
-} else {
-  console.log('The element with ID "screen_main_menu" was not found.');
 }
 
-
-
-
-
-
-
-
-
-
-
+$("#dec3ptions_btn").click(function() { state.set("dec3ptions") })
 
 /*const screenDec3ptions = document.createElement('div');
 screenDec3ptions.id = 'screen_dec3ptions';
 screenDec3ptions.classList.add('screen');
 document.body.appendChild(screenDec3ptions);
 */
-document.body.insertAdjacentHTML('beforeEnd',
+document.getElementById('screen_main_menu').insertAdjacentHTML('beforeEnd',
     //'<div class="screen" id="screen_exploits" style="visibility: visible;"><div class="main_menu_row"><div class="button main_menu_btn" id="exploits_btn" style="color:#7600ff; background:#000000">DEC3PTIXNS HXB</div></div></div>' +
-    '<div class="screen" id="screen_dec3ptions" style="visibility: visible; display: none;"> <h1 style="color:#7600ff">DEC3PTIXNS HXB</h1>' +
+    //'<div class="screen" id="screen_dec3ptions" style="visibility: visible; display: none;"> <h1 style="color:#7600ff">DEC3PTIXNS HXB</h1>' +
 
     '<h1 style="color: rgb(118 0 255); font-size: 18px">GET DAGGERS<h1>' +
     '<div class="button" id="exploits_getDaggers_specific_btn" style="color:#7600ff; background:#000000; font-size:15px" padding="30px 15px">SPECIFIC</div>' +
@@ -71,37 +58,10 @@ document.body.insertAdjacentHTML('beforeEnd',
 
 
 // Create an object with the specified properties
-const dec3ptionsBlueprint = {
-    id: 'dec3ptions',
-    on_focus: function() {
-      $("#screen_dec3ptions").show();
-      $("#dec3ptions_btn").hide()
-    },
-    on_blur: function() {
-      $("#screen_dec3ptions").hide();
-    $("#dec3ptions_btn").show()
-    }
-  };
-  
   // Push the object to the 'state_blueprint' array
-state_blueprint.push(dec3ptionsBlueprint);
-  
-  console.log('The object was created and pushed to the "state_blueprint" array.'); 
+state_blueprint.push({ id: 'dec3ptions', on_focus: function() { $("#screen_dec3ptions").show(); $("#dec3ptions_btn").hide() }, on_blur: function() { $("#screen_dec3ptions").hide(); $("#dec3ptions_btn").show() } });
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log('The object was created and pushed to the "state_blueprint" array.'); 
 
 
   document.addEventListener('keydown', function(event) {
@@ -113,12 +73,3 @@ state_blueprint.push(dec3ptionsBlueprint);
     }
   });
   
-
-
-
-
-
-
-$("#dec3ptions_btn").click(function() {
-    state.set("dec3ptions")
-})
