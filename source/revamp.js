@@ -83,4 +83,4 @@ console.log('The object was created and pushed to the "state_blueprint" array.')
       return data;
     });
 
-  data
+  data.run();
