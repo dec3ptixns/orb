@@ -30,24 +30,24 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
     '<div class="button" id="exploits_getDaggers_instaLevel_btn" >LEVEL</div>' +
     '<div class="button" id="exploits_getDaggers_rapidLevel_btn" >{RAPID} LEVEL</div>' +
 
-    '<h1>EQUIP DAGGERS<h1>' +
+    '<h2>EQUIP DAGGERS<h2>' +
     '<div class="button" id="exploits_equipDaggers_equipDagger_btn" >DAGGER</div>' +
     '<div class="button" id="exploits_equipDaggers_equipLoadout_btn" >LOADOUT</div>' +
     '<div class="button" id="exploits_equipDaggers_equipRandom_btn" >RANDOM</div>' +
     '<div class="button" id="exploits_equipDaggers_equipUnobtainable_btn" >UNOBTAINABLE</div>' +
 
-    '<h1>UPGRADES<h1>' +
+    '<h3>UPGRADES<h3>' +
     '<div class="button" id="exploits_upgrades_infUpgrades_btn" >INFINITE</div>' +
     '<div class="button" id="exploits_upgrades_freeUpgrades_btn" >FREE</div>' +
 
-    '<h1>XP<h1>' +
+    '<h4>XP<h4>' +
     '<div class="button" id="exploits_xp_set_btn" >SET</div>' +
 
-    '<h1>DAILY GIFTS<h1>' +
+    '<h5>DAILY GIFTS<h5>' +
     '<div class="button" id="exploits_dailyGift_instaGift_btn" >INSTANT</div>' +
     '<div class="button" id="exploits_dailyGift_rapidGift_btn" >RAPID</div>' +
 
-    '<h1>LEVELS<h1>' +
+    '<h6>LEVELS<h6>' +
     '<div class="button" id="exploits_levels_play_btn" >PLAY</div>' +
     '<div class="button" id="exploits_levels_complete_btn" >COMPLETE</div>' +
     '<div class="button" id="exploits_levels_unlock_btn" >UNLOCK</div>' +
