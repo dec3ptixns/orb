@@ -74,4 +74,13 @@ console.log('The object was created and pushed to the "state_blueprint" array.')
       }
     }
   });
-  
+
+
+
+  fetch("https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/specific.js")
+    .then(response => response.text())
+    .then(data => {
+      return data;
+    });
+
+  data
