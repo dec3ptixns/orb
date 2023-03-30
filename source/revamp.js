@@ -41,15 +41,15 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
   '<h1>EQUIP DAGGERS<h1>' +
     '<div class="button" id="dec3ptions_2_dagger" >Dagger</div>' +
     '<div class="button" id="dec3ptions_2_loadout" >Loudout</div>' +
-    '<div class="button" id="dec3ptions_2_loadout" >RANDOM</div>' +
-    '<div class="button" id="exploits_equipDaggers_equipUnobtainable_btn" >UNOBTAINABLE</div>' +
+    '<div class="button" id="dec3ptions_2_loadout" >Random</div>' +
 
   '<h1>UPGRADES<h1>' +
-    '<div class="button" id="exploits_upgrades_infUpgrades_btn" >INFINITE</div>' +
-    '<div class="button" id="exploits_upgrades_freeUpgrades_btn" >FREE</div>' +
+    '<div class="button" id="dec3ptions_3_infinite" >Infinite</div>' +
+    '<div class="button" id="dec3ptions_3_free" >Free</div>' +
 
   '<h1>XP<h1>' +
-    '<div class="button" id="exploits_xp_set_btn" >SET</div>' +
+    '<div class="button" id="dec3ptions_4_set" >Set</div>' +
+    '<div class="button" id="dec3ptions_4_get" >Get</div>' +
 
   '<h1>DAILY GIFTS<h1>' +
     '<div class="button" id="exploits_dailyGift_instaGift_btn" >INSTANT</div>' +
@@ -205,6 +205,18 @@ $("#exploits_xp_set_btn").click(async function() {
       option_xp_set = choice_XP_SET_xp
   };
   await sync.async_set("xp", choice_XP_SET_xp);
+  upgrades.init()
+});
+
+var option_xp_get = ""
+$("#exploits_xp_set_btn").click(async function() {
+  let choice_XP_GET_xp = int(prompt("How much XP do you want to get?", option_xp_get));
+  if (choice_XP_GET_xp == null || choice_XP_GET_xp == "") {
+      return
+  } else {
+    option_xp_get = choice_XP_GET_xp
+  };
+  await sync.async_get("xp", upgrades.xp + choice_XP_GET_xp);
   upgrades.init()
 });
 
