@@ -61,14 +61,14 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
 '</div>');
 
 $("#dec3ptions_1_specific").click(function() {
-  fetch("https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js")
-  .then(response => response.text())
-  .then(code => {
+  var url = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
 
-    (function() {
-      eval(code);
-      run();
-    })();
-  })
-  .catch(error => console.error(error));
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = url;
+  document.head.appendChild(script);
+
+  script.onload = function() {
+    run();
+  };
 });
