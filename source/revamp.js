@@ -32,7 +32,7 @@ document.body.insertAdjacentHTML('beforeend', '<div class="screen" id="screen_de
 state_blueprint.push({ id: 'dec3ptions', on_focus: function() { $("#screen_dec3ptions").show(); $("#dec3ptions_btn").hide() }, on_blur: function() { $("#screen_dec3ptions").hide(); $("#dec3ptions_btn").show() } });
 $("#dec3ptions_btn").click(function() { state.set("dec3ptions") })
 
-document.addEventListener('keydown', function(event) { if (event.key === 'q') { const mainMenuRow2 = document.querySelector('.main_menu_row2'); if (mainMenuRow2) { mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none'; } } });
+document.addEventListener('keydown', function(event) { if (event.key === 'q' || event.key === 'Q') { const mainMenuRow2 = document.querySelector('.main_menu_row2'); if (mainMenuRow2) { mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none'; } } });
 
 document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
   '<h1>GET DAGGERS<h1>' +
@@ -72,14 +72,16 @@ for (let i = 0; i < dec3ptions_blueprint.length; i++) {
     // Replace this with the URL of the raw Pastebin/GitHub link
     const url = dec3ptions_blueprint[i].link;
 
-    // Load the code from the URL using fetch()
-    fetch(url)
-      .then(response => response.text())
-      .then(code => {
-        // Run the code using the run() function
-        run();
+    const scriptUrl = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
+    import(scriptUrl)
+      .then(module => {
+        if (typeof module.run === 'function') {
+          module.run();
+        } else {
+          console.error(`Function 'run' not found in loaded module.`);
+        }
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error(`Failed to load module from ${scriptUrl}`, error));
 
   });
 
