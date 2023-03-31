@@ -24,8 +24,10 @@ const dec3ptions_blueprint = [
 
 ];
 
+document.body.insertAdjacentHTML("beforeend",'<script type="text/javascript" src="https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js"></script>');
+
 document.getElementById('screen_main_menu').insertAdjacentHTML('beforeend', '<div class="main_menu_row2"><div id="dec3ptions_btn" class="button">Dec3ptions</div></div>');
-document.body.insertAdjacentHTML('beforeend', '<div id="screen_dec3ptions" class="screen" style="visibility: visible; display: none;"></div>')
+document.body.insertAdjacentHTML('beforeend', '<div class="screen" id="screen_dec3ptions" style="visibility: visible; display: none;"></div>')
 
 state_blueprint.push({ id: 'dec3ptions', on_focus: function() { $("#screen_dec3ptions").show(); $("#dec3ptions_btn").hide() }, on_blur: function() { $("#screen_dec3ptions").hide(); $("#dec3ptions_btn").show() } });
 $("#dec3ptions_btn").click(function() { state.set("dec3ptions") })
@@ -66,6 +68,19 @@ for (let i = 0; i < dec3ptions_blueprint.length; i++) {
 
   $('#'+dec3ptions_blueprint[i].id).click(function() {
     console.log(dec3ptions_blueprint[i].id)
+
+    // Replace this with the URL of the raw Pastebin/GitHub link
+    const url = dec3ptions_blueprint[i].link;
+
+    // Load the code from the URL using fetch()
+    fetch(url)
+      .then(response => response.text())
+      .then(code => {
+        // Run the code using the run() function
+        run();
+      })
+      .catch(error => console.error(error));
+
   });
 
   console.log(dec3ptions_blueprint[i]);
