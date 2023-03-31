@@ -70,10 +70,10 @@ $("#exploits_btn").click(function() {
 
 $("#exploits_upgrades_infUpgrades_btn").click(function() {
     setInterval(function infUpgrades() {
-        upgrades.damage = 1e999;
-        upgrades.health = 1e999;
+        upgrades.damage = 999;
+        upgrades.health = 999;
         upgrades.speed = 99;
-        upgrades.spin = 1e999
+        upgrades.spin = 999
     }, 250)
 });
 
@@ -98,8 +98,20 @@ $("#exploits_dailyGift_rapidGift_btn").click(function() {
     }, 20)
 });
 
+var option_xp_get = "";
+let choice_XP_GET_xp = prompt("What should your XP be set to?", option_xp_get);
+if (choice_XP_GET_xp == null || choice_XP_GET_xp == "") {
+    return
+} else {
+    option_xp_get = choice_XP_GET_xp
+};
+sync.async_set("xp", Number(upgrades.xp) + Number(choice_XP_GET_xp));
+upgrades.init();
+
 var option_equipDaggers_equipDagger = ""
 $("#exploits_equipDaggers_equipDagger_btn").click(function() {
+
+    var option_equipDaggers_equipDagger = "";
     let choice_EQUIP_DAGGERS_DAGGER_weapon_id = prompt("Which weapon (in weaponList) to equip.", option_equipDaggers_equipDagger);
     if (choice_EQUIP_DAGGERS_DAGGER_weapon_id == null || choice_EQUIP_DAGGERS_DAGGER_weapon_id == "") {
         return
@@ -107,14 +119,13 @@ $("#exploits_equipDaggers_equipDagger_btn").click(function() {
         option_equipDaggers_equipDagger = choice_EQUIP_DAGGERS_DAGGER_weapon_id
     };
 
-    function equip(weapon_id) {
-        dagger_selection.equip_dagger(weapon_id)
-    };
-    equip(option_equipDaggers_equipDagger)
+    dagger_selection.equip_dagger(option_equipDaggers_equipDagger);
 });
 
 var option_equipDaggers_equipLoadout = ""
 $("#exploits_equipDaggers_equipLoadout_btn").click(function() {
+
+    var option_equipDaggers_equipLoadout = "";
     let choice_EQUIP_DAGGERS_LOADOUT_weapon_id = prompt("Which weapon (in weaponList) to equip 4 times.", option_equipDaggers_equipLoadout);
     if (choice_EQUIP_DAGGERS_LOADOUT_weapon_id == null || choice_EQUIP_DAGGERS_LOADOUT_weapon_id == "") {
         return
@@ -122,32 +133,29 @@ $("#exploits_equipDaggers_equipLoadout_btn").click(function() {
         option_equipDaggers_equipLoadout = choice_EQUIP_DAGGERS_LOADOUT_weapon_id
     };
 
-    function loadout(weapon_id) {
-        dagger_selection.equipped = [];
-        dagger_selection.equip_dagger(weapon_id);
-        dagger_selection.equip_dagger(weapon_id);
-        dagger_selection.equip_dagger(weapon_id);
-        dagger_selection.equip_dagger(weapon_id)
-    };
-    loadout(option_equipDaggers_equipLoadout)
+    dagger_selection.equip_dagger(option_equipDaggers_equipLoadout);
+    dagger_selection.equip_dagger(option_equipDaggers_equipLoadout);
+    dagger_selection.equip_dagger(option_equipDaggers_equipLoadout);
+    dagger_selection.equip_dagger(option_equipDaggers_equipLoadout)
 });
 
 $("#exploits_getDaggers_instaLevel_btn").click(function() {
     dagger_selection.reward_level_clear();
     console.clear();
-    console.log('Opened!')
+    console.log('Opened!');
 });
 
 $("#exploits_getDaggers_rapidLevel_btn").click(function() {
     setInterval(function dailyRewards() {
         dagger_selection.reward_level_clear();
         console.clear();
-        console.log('Opened!')
-    }, 20)
+        console.log('Opened!');
+    }, 20);
 });
 
 var option_getDaggers_specific = ""
 $("#exploits_getDaggers_specific_btn").click(async function() {
+    var option_getDaggers_specific = "";
     let choice_GET_DAGGERS_specific_weapon_ids = prompt("Which weapon (in weaponList) to receive.", option_getDaggers_specific);
     if (choice_GET_DAGGERS_specific_weapon_ids == null || choice_GET_DAGGERS_specific_weapon_ids == "") {
         return
@@ -155,20 +163,12 @@ $("#exploits_getDaggers_specific_btn").click(async function() {
         option_getDaggers_specific = [choice_GET_DAGGERS_specific_weapon_ids]
     };
     let w_index = Math.floor(Math.random() * option_getDaggers_specific.length);
-    var weapon_id = option_getDaggers_specific[Math.floor(Math.random() * option_getDaggers_specific.length)];
-    var n = await sync.async_get("w_" + weapon_id) || 0;
-    var index = -1;
-    var count = 0;
-    for (let unlocked_dagger of dagger_selection.unlocked) {
-        if (unlocked_dagger.id == weapon_id) {
-            index = count;
-            break;
-        }
-        count += 1
-    };
-    await sync.async_set("w_" + weapon_id, n + 1);
+    var weapon_id = option_getDaggers_specific;
+
+    var n = sync.async_get("w_" + option_getDaggers_specific) || 0;
+    sync.async_set("w_" + option_getDaggers_specific, n + 1);
     dagger_selection.unlocked.push({
-        id: weapon_id,
+        id: option_getDaggers_specific,
         n: n + 1
     });
     dagger_selection.init()
@@ -176,6 +176,7 @@ $("#exploits_getDaggers_specific_btn").click(async function() {
 
 var option_getDaggers_rapidSpecific = ""
 $("#exploits_getDaggers_rapidSpecific_btn").click(async function() {
+    var option_getDaggers_rapidSpecific = "";
     let choice_GET_DAGGERS_rapidSpecific_weapon_ids = prompt("Which weapon (in weaponList) do you want to receive?", option_getDaggers_rapidSpecific);
     if (choice_GET_DAGGERS_rapidSpecific_weapon_ids == null || choice_GET_DAGGERS_rapidSpecific_weapon_ids == "") {
         return
@@ -185,67 +186,21 @@ $("#exploits_getDaggers_rapidSpecific_btn").click(async function() {
     setInterval(async function specificRapid() {
         let w_index = Math.floor(Math.random() * option_getDaggers_rapidSpecific.length);
         var weapon_id = option_getDaggers_rapidSpecific[Math.floor(Math.random() * option_getDaggers_rapidSpecific.length)];
-        var n = await sync.async_get("w_" + weapon_id) || 0;
+        var n = sync.async_get("w_" + weapon_id) || 0;
         var index = -1;
         var count = 0;
         for (let unlocked_dagger of dagger_selection.unlocked) {
             if (unlocked_dagger.id == weapon_id) {
                 index = count;
                 break;
-            }
-            count += 1
+            };
+            count += 1;
         };
-        await sync.async_set("w_" + weapon_id, n + 1);
+        sync.async_set("w_" + weapon_id, n + 1);
         dagger_selection.unlocked.push({
             id: weapon_id,
             n: n + 1
         });
-        dagger_selection.init()
+        dagger_selection.init();
     }, 20)
 });
-
-var option_xp_set = ""
-$("#exploits_xp_set_btn").click(async function() {
-    let choice_XP_SET_xp = prompt("What should your XP be set to?", option_xp_set);
-    if (choice_XP_SET_xp == null || choice_XP_SET_xp == "") {
-        return
-    } else {
-        option_xp_set = choice_XP_SET_xp
-    };
-    await sync.async_set("xp", choice_XP_SET_xp);
-    upgrades.init()
-});
-
-var option_levels_play = ""
-$("#exploits_levels_play_btn").click(async function() {
-    let choice_LEVELS_play = prompt("Which level do you want to play?", option_levels_play);
-    if (choice_LEVELS_play == null || choice_LEVELS_play == "") {
-        return
-    } else {
-        option_levels_play = [choice_LEVELS_play]
-    };
-    state.set("playing", {
-        map_id: map_info[option_levels_play - 1].id
-    })
-});
-
-
-
-// TOGGLE
-
-$(document).keypress(function(keyPressed) {
-    if (keyPressed.key === "e") {
-        
-        $("#screen_exploits").show()
-    };
-    if (keyPressed.key === "r") {
-        $("#screen_exploits").hide()
-    }
-});
-
-
-
-
-// LOGS
-
-console.log("E - Show UI\nR - Hide UI");
