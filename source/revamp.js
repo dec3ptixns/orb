@@ -95,18 +95,3 @@ $('#'+dec3ptions_blueprint[0].id).click(function() {
   }, 20)
 });
 */
-
-
-async function fetchAndCopyGithubCode(rawGithubLink) {
-  const response = await fetch(rawGithubLink);
-  const code = await response.text();
-  const functionCode = `function myFunction() {\n${code}\n}`;
-  return functionCode;
-}
-
-// Example usage
-const githubLink = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
-fetchAndCopyGithubCode(githubLink).then((functionCode) => {
-  eval(functionCode); // Execute the function code
-  myFunction(); // Call the function
-});
