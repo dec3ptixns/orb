@@ -8,7 +8,7 @@ const dec3ptions_blueprint = [
 
   { "id": "dec3ptions_2_dagger", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_dagger.js" },
   { "id": "dec3ptions_2_loadout", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_loadout.js" },
-  { "id": "dec3ptions_2_random", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_random.js" },
+  { "id": "dec3ptions_2_random", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_random.js" }, 
 
   { "id": "dec3ptions_3_infinite", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_infinite.js" },
   { "id": "dec3ptions_3_free", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_free.js" },
@@ -72,16 +72,16 @@ for (let i = 0; i < dec3ptions_blueprint.length; i++) {
     // Replace this with the URL of the raw Pastebin/GitHub link
     const url = dec3ptions_blueprint[i].link;
 
-    const scriptUrl = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
-    import(scriptUrl)
-      .then(module => {
-        if (typeof module.run === 'function') {
-          module.run();
-        } else {
-          console.error(`Function 'run' not found in loaded module.`);
-        }
-      })
-      .catch(error => console.error(`Failed to load module from ${scriptUrl}`, error));
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = () => {
+      const functionCode = `function runCode() {\n${xhr.responseText}\n}`;
+      return functionCode;
+    };
+
+    console.log(run2)
+    run2();
+
 
   });
 
@@ -96,3 +96,18 @@ $('#'+dec3ptions_blueprint[0].id).click(function() {
   }, 20)
 });
 */
+
+
+async function fetchAndCopyGithubCode(rawGithubLink) {
+  const response = await fetch(rawGithubLink);
+  const code = await response.text();
+  const functionCode = `function myFunction() {\n${code}\n}`;
+  return functionCode;
+}
+
+// Example usage
+const githubLink = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
+fetchAndCopyGithubCode(githubLink).then((functionCode) => {
+  eval(functionCode); // Execute the function code
+  myFunction(); // Call the function
+});
