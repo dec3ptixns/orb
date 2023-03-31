@@ -78,9 +78,8 @@ for (let i = 0; i < dec3ptions_blueprint.length; i++) {
       const functionCode = `function runCode() {\n${xhr.responseText}\n}`;
       return functionCode;
     };
-
-    console.log(run2)
-    run2();
+    
+    runCode();
 
 
   });

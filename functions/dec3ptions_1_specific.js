@@ -1,3 +1,3 @@
-print("1")
-
-
+function run() {
+    print("1")
+};
