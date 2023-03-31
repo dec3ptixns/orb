@@ -1,3 +1,10 @@
+// Variables
+const dec3ptions_buttons = [ 
+
+  
+
+];
+
 const screenMainMenu = document.getElementById('screen_main_menu');
 if (screenMainMenu) {
   const mainMenuRow2 = document.createElement('div');
@@ -52,11 +59,12 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
     '<div class="button" id="dec3ptions_4_get" >Get</div>' +
 
   '<h1>DAILY GIFTS<h1>' +
-    '<div class="button" id="exploits_dailyGift_instaGift_btn" >INSTANT</div>' +
-    '<div class="button" id="exploits_dailyGift_rapidGift_btn" >RAPID</div>' +
+    '<div class="button" id="dec3ptions_5_instant" >Instant</div>' +
+    '<div class="button" id="dec3ptions_5_infinite" >Infinite</div>' +
+    '<div class="button" id="dec3ptions_5_custom" >Custom</div>' +
 
   '<h1>LEVELS<h1>' +
-    '<div class="button" id="exploits_levels_play_btn" >PLAY</div>' +
+    '<div class="button" id="dec3ptions_6_play" >Play</div>' +
 
 '</div>');
 
