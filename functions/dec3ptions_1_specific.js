@@ -1,3 +1,3 @@
 function run() {
-    print("amabatublow work")
-}
+    print("1")
+};
