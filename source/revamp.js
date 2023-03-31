@@ -1,7 +1,7 @@
 // Variables
 const dec3ptions_blueprint = [
   
-  { "id": "dec3ptions_1_specific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js" },
+  { "id": "dec3ptions_1_specific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js", "function": function() {console.log("coems")} },
   { "id": "dec3ptions_1_rapidSpecific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidSpecific.js" },
   { "id": "dec3ptions_1_levelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_levelbased.js" },
   { "id": "dec3ptions_1_rapidLevelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidLevelbased.js" },
@@ -67,31 +67,10 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
 for (let i = 0; i < dec3ptions_blueprint.length; i++) {
 
   $('#'+dec3ptions_blueprint[i].id).click(function() {
-    console.log(dec3ptions_blueprint[i].id)
-
-    // Replace this with the URL of the raw Pastebin/GitHub link
-    const url = dec3ptions_blueprint[i].link;
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.onload = () => {
-      const functionCode = `function runCode() {\n${xhr.responseText}\n}`;
-      return functionCode;
-    };
-    
-    runCode();
-
-
+    console.log(dec3ptions_blueprint[i].id);
+    dec3ptions_blueprint[i].function();
   });
 
   console.log(dec3ptions_blueprint[i]);
 
 };
-
-/*
-$('#'+dec3ptions_blueprint[0].id).click(function() {
-  setInterval(function dailyRewards() {
-      console.log("clicked")
-  }, 20)
-});
-*/
