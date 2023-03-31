@@ -1,42 +1,36 @@
 // Variables
-const dec3ptions_buttons = [ 
+const dec3ptions_blueprint = [
 
-  
+  { "id": "dec3ptions_1_specific", "link": "" },
+  { "id": "dec3ptions_1_rapidSpecific", "link": "" },
+  { "id": "dec3ptions_1_levelbased", "link": "" },
+  { "id": "dec3ptions_1_rapidLevelbased", "link": "" },
+
+  { "id": "dec3ptions_2_dagger", "link": "" },
+  { "id": "dec3ptions_2_loadout", "link": "" },
+  { "id": "dec3ptions_2_random", "link": "" },
+
+  { "id": "dec3ptions_3_infinite", "link": "" },
+  { "id": "dec3ptions_3_free", "link": "" },
+
+  { "id": "dec3ptions_4_set", "link": "" },
+  { "id": "dec3ptions_4_get", "link": "" },
+
+  { "id": "dec3ptions_5_instant", "link": "" },
+  { "id": "dec3ptions_5_infinite", "link": "" },
+  { "id": "dec3ptions_5_custom", "link": "" },
+
+  { "id": "dec3ptions_6_play", "link": "" },
 
 ];
 
-const screenMainMenu = document.getElementById('screen_main_menu');
-if (screenMainMenu) {
-  const mainMenuRow2 = document.createElement('div');
-  mainMenuRow2.classList.add('main_menu_row2');
-  mainMenuRow2.display = 'flex';
-  screenMainMenu.appendChild(mainMenuRow2);
-
-  const dec3ptionsBtn = document.createElement('div');
-  dec3ptionsBtn.id = 'dec3ptions_btn';
-  dec3ptionsBtn.classList.add('button');
-  dec3ptionsBtn.textContent = 'Dec3ptions';
-  mainMenuRow2.appendChild(dec3ptionsBtn);
-}
-
-$("#dec3ptions_btn").click(function() { state.set("dec3ptions") })
-
-const screenDec3ptions = document.createElement('div');
-screenDec3ptions.id = 'screen_dec3ptions';
-screenDec3ptions.style = 'visibility: visible; display: none;';
-screenDec3ptions.classList.add('screen');
-document.body.appendChild(screenDec3ptions);
+document.getElementById('screen_main_menu').insertAdjacentHTML('beforeend', '<div class="main_menu_row2"><div id="dec3ptions_btn" class="button">Dec3ptions</div></div>');
+document.body.insertAdjacentHTML('beforeend', '<div id="screen_dec3ptions" class="screen" style="visibility: visible; display: none;"></div>')
 
 state_blueprint.push({ id: 'dec3ptions', on_focus: function() { $("#screen_dec3ptions").show(); $("#dec3ptions_btn").hide() }, on_blur: function() { $("#screen_dec3ptions").hide(); $("#dec3ptions_btn").show() } });
+$("#dec3ptions_btn").click(function() { state.set("dec3ptions") })
 
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'q') {
-    const mainMenuRow2 = document.querySelector('.main_menu_row2');
-    if (mainMenuRow2) {
-      mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none';
-    }
-  }
-});
+document.addEventListener('keydown', function(event) { if (event.key === 'q') { const mainMenuRow2 = document.querySelector('.main_menu_row2'); if (mainMenuRow2) { mainMenuRow2.style.display = mainMenuRow2.style.display === 'none' ? 'block' : 'none'; } } });
 
 document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
   '<h1>GET DAGGERS<h1>' +
@@ -48,7 +42,7 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
   '<h1>EQUIP DAGGERS<h1>' +
     '<div class="button" id="dec3ptions_2_dagger" >Dagger</div>' +
     '<div class="button" id="dec3ptions_2_loadout" >Loudout</div>' +
-    '<div class="button" id="dec3ptions_2_loadout" >Random</div>' +
+    '<div class="button" id="dec3ptions_2_random" >Random</div>' +
 
   '<h1>UPGRADES<h1>' +
     '<div class="button" id="dec3ptions_3_infinite" >Infinite</div>' +
@@ -68,15 +62,20 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
 
 '</div>');
 
-$("#dec3ptions_1_specific").click(function() {
-  var url = "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js";
+for (let i = 0; i < dec3ptions_blueprint.length; i++) {
 
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = url;
-  document.head.appendChild(script);
+  $('#'+dec3ptions_blueprint[i].id).click(function() {
+    console.log(dec3ptions_blueprint[i].id)
+  });
 
-  script.onload = function() {
-    run();
-  };
+  console.log(dec3ptions_blueprint[i]);
+
+};
+
+/*
+$('#'+dec3ptions_blueprint[0].id).click(function() {
+  setInterval(function dailyRewards() {
+      console.log("clicked")
+  }, 20)
 });
+*/
