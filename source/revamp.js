@@ -1,26 +1,26 @@
 // Variables
 const dec3ptions_blueprint = [
+  
+  { "id": "dec3ptions_1_specific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js" },
+  { "id": "dec3ptions_1_rapidSpecific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_1_rapidSpecific.js" },
+  { "id": "dec3ptions_1_levelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_1_levelbased.js" },
+  { "id": "dec3ptions_1_rapidLevelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_1_rapidLevelbased.js" },
 
-  { "id": "dec3ptions_1_specific", "link": "" },
-  { "id": "dec3ptions_1_rapidSpecific", "link": "" },
-  { "id": "dec3ptions_1_levelbased", "link": "" },
-  { "id": "dec3ptions_1_rapidLevelbased", "link": "" },
+  { "id": "dec3ptions_2_dagger", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_2_dagger.js" },
+  { "id": "dec3ptions_2_loadout", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_2_loadout.js" },
+  { "id": "dec3ptions_2_random", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_2_random.js" },
 
-  { "id": "dec3ptions_2_dagger", "link": "" },
-  { "id": "dec3ptions_2_loadout", "link": "" },
-  { "id": "dec3ptions_2_random", "link": "" },
+  { "id": "dec3ptions_3_infinite", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_3_infinite.js" },
+  { "id": "dec3ptions_3_free", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_3_free.js" },
 
-  { "id": "dec3ptions_3_infinite", "link": "" },
-  { "id": "dec3ptions_3_free", "link": "" },
+  { "id": "dec3ptions_4_set", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_4_set.js" },
+  { "id": "dec3ptions_4_get", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_4_get.js" },
 
-  { "id": "dec3ptions_4_set", "link": "" },
-  { "id": "dec3ptions_4_get", "link": "" },
+  { "id": "dec3ptions_5_instant", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_5_instant.js" },
+  { "id": "dec3ptions_5_infinite", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_5_infinite.js" },
+  { "id": "dec3ptions_5_custom", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_5_custom.js" },
 
-  { "id": "dec3ptions_5_instant", "link": "" },
-  { "id": "dec3ptions_5_infinite", "link": "" },
-  { "id": "dec3ptions_5_custom", "link": "" },
-
-  { "id": "dec3ptions_6_play", "link": "" },
+  { "id": "dec3ptions_6_play", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/tree/main/functions/dec3ptions_6_play.js" },
 
 ];
 
