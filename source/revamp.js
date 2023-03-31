@@ -1,26 +1,26 @@
 // Variables
 const dec3ptions_blueprint = [
   
-  { "id": "dec3ptions_1_specific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js", "function": function() {console.log("coems")} },
-  { "id": "dec3ptions_1_rapidSpecific", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidSpecific.js" },
-  { "id": "dec3ptions_1_levelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_levelbased.js" },
-  { "id": "dec3ptions_1_rapidLevelbased", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidLevelbased.js" },
+  { "id": "dec3ptions_1_specific", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_specific.js", "function": function() {  } },
+  { "id": "dec3ptions_1_rapidSpecific", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidSpecific.js", "function": function() {  } },
+  { "id": "dec3ptions_1_levelbased", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_levelbased.js", "function": function() {  } },
+  { "id": "dec3ptions_1_rapidLevelbased", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_1_rapidLevelbased.js", "function": function() {  } },
 
-  { "id": "dec3ptions_2_dagger", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_dagger.js" },
-  { "id": "dec3ptions_2_loadout", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_loadout.js" },
-  { "id": "dec3ptions_2_random", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_random.js" }, 
+  { "id": "dec3ptions_2_dagger", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_dagger.js", "function": function() {  } },
+  { "id": "dec3ptions_2_loadout", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_loadout.js", "function": function() {  } },
+  { "id": "dec3ptions_2_random", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_2_random.js", "function": function() {  } },
 
-  { "id": "dec3ptions_3_infinite", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_infinite.js" },
-  { "id": "dec3ptions_3_free", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_free.js" },
+  { "id": "dec3ptions_3_infinite", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_infinite.js", "function": function() {  } },
+  { "id": "dec3ptions_3_free", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_3_free.js", "function": function() {  } },
 
-  { "id": "dec3ptions_4_set", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_4_set.js" },
-  { "id": "dec3ptions_4_get", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_4_get.js" },
+  { "id": "dec3ptions_4_set", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_4_set.js", "function": function() {  } },
+  { "id": "dec3ptions_4_get", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_4_get.js", "function": function() {  } },
 
-  { "id": "dec3ptions_5_instant", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_instant.js" },
-  { "id": "dec3ptions_5_infinite", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_infinite.js" },
-  { "id": "dec3ptions_5_custom", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_custom.js" },
+  { "id": "dec3ptions_5_instant", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_instant.js", "function": function() {  } },
+  { "id": "dec3ptions_5_infinite", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_infinite.js", "function": function() {  } },
+  { "id": "dec3ptions_5_custom", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_5_custom.js", "function": function() {  } },
 
-  { "id": "dec3ptions_6_play", "link": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_6_play.js" },
+  { "id": "dec3ptions_6_play", "source": "https://raw.githubusercontent.com/dec3ptixns/orb/main/functions/dec3ptions_6_play.js", "function": function() {  } },
 
 ];
 
@@ -67,7 +67,6 @@ document.getElementById('screen_dec3ptions').insertAdjacentHTML('beforeEnd',
 for (let i = 0; i < dec3ptions_blueprint.length; i++) {
 
   $('#'+dec3ptions_blueprint[i].id).click(function() {
-    console.log(dec3ptions_blueprint[i].id);
     dec3ptions_blueprint[i].function();
   });
 
